@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Eligibility Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Loan Eligibility Prediction</h2>
+
+    <form id="loanForm">
+        <label for="loanId">Loan ID:</label>
+        <input type="text" id="loanId" name="loanId" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label for="married">Married:</label>
+        <select id="married" name="married" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="dependents">Dependents:</label>
+        <input type="number" id="dependents" name="dependents" required>
+
+        <label for="education">Education:</label>
+        <select id="education" name="education" required>
+            <option value="Graduated">Graduated</option>
+            <option value="Not Graduated">Not Graduated</option>
+        </select>
+
+        <label for="selfEmployed">Self Employed:</label>
+        <select id="selfEmployed" name="selfEmployed" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="applicantIncome">Applicant Income:</label>
+        <input type="number" id="applicantIncome" name="applicantIncome" required>
+
+        <label for="coApplicantIncome">Co-Applicant Income:</label>
+        <input type="number" id="coApplicantIncome" name="coApplicantIncome" required>
+
+        <label for="loanAmount">Loan Amount:</label>
+        <input type="number" id="loanAmount" name="loanAmount" required>
+
+        <label for="loanAmountTerm">Loan Amount Term:</label>
+        <input type="number" id="loanAmountTerm" name="loanAmountTerm" required>
+
+        <label for="creditHistory">Credit History:</label>
+        <select id="creditHistory" name="creditHistory" required>
+            <option value="1">1</option>
+            <option value="0">0</option>
+        </select>
+
+        <label for="propertyArea">Property Area:</label>
+        <select id="propertyArea" name="propertyArea" required>
+            <option value="Urban">Urban</option>
+            <option value="Rural">Rural</option>
+        </select>
+
+        <button type="button" onclick="predictLoanEligibility()">Check Eligibility</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function predictLoanEligibility() {
+            // Fetch values from the form
+            const education = document.getElementById('education').value;
+            const propertyArea = document.getElementById('propertyArea').value;
+            
+            // Hypothetical prediction logic - replace this with your actual prediction logic
+            const isEligible = (education === 'Graduated' && propertyArea === 'Urban');
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = isEligible ? 'Loan is Eligible' : 'Loan is Not Eligible';
+        }
+    </script>
+
+</body>
+</html>
